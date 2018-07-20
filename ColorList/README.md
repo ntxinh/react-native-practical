@@ -13,3 +13,15 @@ emulator -avd Pixel_API_23
 react-native start
 react-native run-android
 ```
+
+# STACK
+
+- Respond to touches (event onPress() in <Text>)
+- TouchableHighlight
+- ScrollView
+- ListView
+- Collect data (TextInput)
+- AsyncStorage
+- React navigation
+- Navigator (Pending)
+- WebView
