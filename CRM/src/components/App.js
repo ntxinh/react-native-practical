@@ -20,12 +20,6 @@ export default class App extends Component {
 
   UNSAFE_componentWillMount () {
     firebase.initializeApp({
-      apiKey: 'AIzaSyD5ZASokjEGQZQS1vJrngbkLkygIZ4YvQk',
-      authDomain: 'crmlinkedin-b2ff6.firebaseapp.com',
-      databaseURL: 'https://crmlinkedin-b2ff6.firebaseio.com',
-      projectId: 'crmlinkedin-b2ff6',
-      storageBucket: '',
-      messagingSenderId: '300229983006',
     });
 
     firebase.auth().onAuthStateChanged((user) => {
