@@ -5,15 +5,21 @@ import {
   ListView
 } from 'react-native';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
 import PeopleItem from './PeopleItem';
 import PeopleDetail from './PeopleDetail';
+import { loadInitialContacts } from './../actions';
 
 class PeopleList extends Component {
 
   static navigationOptions = {
     tabBarLabel: 'People',
   };
+
+  UNSAFE_componentWillMount () {
+    this.props.loadInitialContacts();
+  }
 
   renderInitialView () {
     const ds = new ListView.DataSource({
@@ -57,10 +63,13 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
+  const people = _.map(state.people, (val, uid) => {
+    return { ...val, uid };
+  });
   return {
-    people: state.people,
+    people,
     detailView: state.detailView,
   };
 };
 
-export default connect(mapStateToProps)(PeopleList);
+export default connect(mapStateToProps, { loadInitialContacts })(PeopleList);

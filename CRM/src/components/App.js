@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View
-} from 'react-native';
 import firebase from 'firebase';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 
+import Config from './../../app.json';
 import Login from './Login';
 import Navigation from './Navigation';
 import Loader from './Loader';
 import reducers from './../reducers/PeopleReducer';
+import Thunk from 'redux-thunk';
 
-const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(Thunk));
 
 export default class App extends Component {
 
@@ -20,6 +18,12 @@ export default class App extends Component {
 
   UNSAFE_componentWillMount () {
     firebase.initializeApp({
+      apiKey: Config.apiKey,
+      authDomain: Config.authDomain,
+      databaseURL: Config.databaseURL,
+      projectId: Config.projectId,
+      storageBucket: Config.storageBucket,
+      messagingSenderId: Config.messagingSenderId,
     });
 
     firebase.auth().onAuthStateChanged((user) => {
@@ -45,19 +49,8 @@ export default class App extends Component {
   render () {
     return (
       <Provider store={store}>
-        {/* <View style={styles.container}> */}
-          {this.renderInitialView()}
-        {/* </View> */}
+        {this.renderInitialView()}
       </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-});

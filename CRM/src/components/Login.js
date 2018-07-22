@@ -61,7 +61,7 @@ export default class App extends Component {
     const { container, welcome, fieldStyles, loginButtonArea, errorMessage } = styles;
     return (
       <View style={container}>
-        <Text style={welcome}>Login or create an account</Text>
+        <Text style={welcome}>Welcome to the CRM!</Text>
         <TextInput
           style={fieldStyles}
           onChangeText={(email) => this.setState({ email })}

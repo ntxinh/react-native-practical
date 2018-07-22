@@ -1,9 +1,9 @@
-import { createBottomTabNavigator } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation';
 import PeopleList from './PeopleList';
 import CompanyList from './CompanyList';
 import AddPerson from './AddPerson';
 
-const Navigation = createBottomTabNavigator(
+const Navigation = createMaterialTopTabNavigator(
   {
     PeopleList: { screen: PeopleList },
     AddPerson: { screen: AddPerson },
@@ -19,7 +19,7 @@ const Navigation = createBottomTabNavigator(
         backgroundColor: '#26a69a',
       },
       labelStyle: {
-        fontSize: 20,
+        fontSize: 15,
       },
     },
   }

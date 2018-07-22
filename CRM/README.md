@@ -1,3 +1,7 @@
+# SCREENSHOTS
+
+![Overview](screenshots/overview.gif)
+
 # HOW TO RUN
 
 ```bash
@@ -9,3 +13,12 @@ emulator -avd Pixel_API_23
 react-native start
 react-native run-android
 ```
+
+# STACK
+
+- firebase
+- lodash
+- react-navigation
+- redux, react-redux, redux-thunk
+- Login
+- CRUD

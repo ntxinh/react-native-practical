@@ -1,4 +1,10 @@
 {
   "name": "HelloRN",
-  "displayName": "HelloRN"
+  "displayName": "HelloRN",
+  "apiKey": "AIzaSyD5ZASokjEGQZQS1vJrngbkLkygIZ4YvQk",
+  "authDomain": "crmlinkedin-b2ff6.firebaseapp.com",
+  "databaseURL": "https://crmlinkedin-b2ff6.firebaseio.com",
+  "projectId": "crmlinkedin-b2ff6",
+  "storageBucket": "",
+  "messagingSenderId": "300229983006"
 }
